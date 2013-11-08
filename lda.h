@@ -8,9 +8,9 @@
 using namespace std;
 
 bool LDACalc(string datafile,
-			 string labelfile,
-			 string fea_resfile,
-			 string projection_mat_resfile);
+	     string labelfile,
+	     string fea_resfile,
+	     string projection_mat_resfile);
 
 bool generalized_sym_eig(Matrix &MatA, Matrix &MatB, vector<double> &Eig, Matrix &Eigvec);
 inline bool fexist(string filename);

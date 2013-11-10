@@ -62,7 +62,6 @@ bool generalized_sym_eig(Matrix &MatA, Matrix &MatB, vector<double> &Eig,Matrix 
 		for(j=0;j<N;j++)
 			Eigvec(i,j) = A[i*N+j];
 	Eigvec = reverse(Eigvec,2);
-	Eigvec.writefile("eigvectors.txt");
 
 	for(i=0;i<N;i++)
 			Eig[i] = W[i];

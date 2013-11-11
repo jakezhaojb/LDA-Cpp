@@ -49,11 +49,11 @@ bool generalized_sym_eig(Matrix &MatA, Matrix &MatB, vector<double> &Eig,Matrix 
 	doublereal *work = new doublereal[lwork]();
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++)
-			A[i*30+j] = MatA(j,i);
+			A[i*N+j] = MatA(j,i);
 	}
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++)
-			B[i*30+j] = MatB(j,i);
+			B[i*N+j] = MatB(j,i);
 	}
 
 	dsygv_(&itype,"V","U",&N,A,&N,B,&N,W,work,&lwork,&info);
@@ -110,7 +110,7 @@ bool LDACalc(string datafile,string labelfile,string fea_resfile,string projecti
 	Matrix St = Fea.trans()*Fea/size-mu.trans()*mu;
 
 	//Generalized Eigen problem.
-	vector<double> D(30,0); 
+	vector<double> D(Sw.Getrows(),0); 
 	Matrix V(Sw.Getrows(),Sw.Getrows());
 	if(generalized_sym_eig(St, Sw, D, V)){
 		Matrix Fea_LDA = Fea * V;

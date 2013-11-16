@@ -84,7 +84,8 @@ bool LDACalc(string datafile,string labelfile,string fea_resfile,string projecti
 		label_fin>>temp;
 		label.push_back(temp);
 	}
-
+	label_fin.close();
+	
 	//Sw computing
 	Matrix Sw = zeros(Fea.Getcols(),Fea.Getcols());
 	vector<bool> t_flag(label.size(),false);
